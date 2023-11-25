@@ -19,7 +19,7 @@ const FileManagement = () => {
   };
 
   const fetchFilesList = () => {
-    axios.get('http://localhost:3000/files')
+    axios.get('https://filemanagement-um3r.onrender.com/files')
       .then((response) => {
         setFilesList(response.data);
       })
@@ -32,7 +32,7 @@ const FileManagement = () => {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    axios.post('http://localhost:3000/upload', formData)
+    axios.post('https://filemanagement-um3r.onrender.com/upload', formData)
       .then(() => {
         fetchFilesList();
         setSelectedFile(null);
@@ -44,7 +44,7 @@ const FileManagement = () => {
   };
 
   const handleFileDelete = (filename) => {
-    axios.delete(`http://localhost:3000/files/${filename}`)
+    axios.delete(`https://filemanagement-um3r.onrender.com/files/${filename}`)
       .then(() => {
         fetchFilesList();
       })
@@ -61,7 +61,7 @@ const FileManagement = () => {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    axios.put(`http://localhost:3000/files/${selectedFileName}`, formData)
+    axios.put(`https://filemanagement-um3r.onrender.com/files/${selectedFileName}`, formData)
       .then(() => {
         fetchFilesList();
         setSelectedFile(null);
